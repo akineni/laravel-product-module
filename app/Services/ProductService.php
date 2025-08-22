@@ -11,16 +11,6 @@ class ProductService
         return Product::latest()->get();
     }
 
-    // public function create(array $data): Product
-    // {
-    //     return Product::create($data);
-    // }
-
-    // public function update(Product $product, array $data)
-    // {
-    //     $product->update($data);
-    // }
-
     public function create(array $data): Product
     {
         $images = $data['images'] ?? [];
