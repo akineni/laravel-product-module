@@ -21,7 +21,7 @@
       <div class="col-md">
         <h5 class="my-4">Product Images</h5>
 
-        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div id="carouselExample" class="carousel slide carousel-dark" data-bs-ride="carousel">
             <ol class="carousel-indicators">
                 @foreach($product->images as $index => $image)
                     <li data-bs-target="#carouselExample" data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}"></li>
@@ -31,7 +31,7 @@
                 @foreach($product->images as $index => $image)
                     <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                         <!-- php artisan storage:link -->
-                        <img class="d-block w-100" src="{{ asset('storage/' . $image->path) }}" alt="Slide {{ $index + 1 }}" />
+                        <img class="d-block m-auto" src="{{ asset('storage/' . $image->path) }}" alt="Slide {{ $index + 1 }}" height="500" />
                         <div class="carousel-caption d-none d-md-block">
                             <h3>{{ $product->name }}</h3>
                             <p>{{ $product->description }}</p>

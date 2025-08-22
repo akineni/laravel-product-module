@@ -2,11 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Product;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class ProductSeeder extends Seeder
 {
@@ -15,6 +12,12 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        Product::factory()->count(10)->create();
+        \App\Models\Product::factory(10)
+        ->create()
+        ->each(function ($product) {
+            \App\Models\ProductImage::factory(rand(1, 3))->create([
+                'product_id' => $product->id,
+            ]);
+        });
     }
 }
