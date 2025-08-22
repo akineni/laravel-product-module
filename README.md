@@ -41,8 +41,8 @@ A clean, beginner-friendly Laravel 10 project demonstrating **authentication**, 
 1. **Clone the repo**
 
 ```bash
-git clone https://github.com/your-username/laravel-authentication.git
-cd laravel-authentication
+git clone https://github.com/akineni/laravel-product-module.git
+cd laravel-product-module
 ```
 
 2. **Install dependencies**
