@@ -61,7 +61,7 @@ php artisan key:generate
 ```
 
 * Set your DB credentials in `.env`
-* Toggle email verification if desired:
+* Toggle email verification if desired (do not toggle yet because the background worker isn't configured and email will freeze):
 
 ```env
 EMAIL_VERIFICATION=true
