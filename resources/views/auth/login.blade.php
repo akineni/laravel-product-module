@@ -10,8 +10,8 @@
           <div class="card">
             <div class="card-body">
               
-              <h4 class="mb-2">Welcome! 👋</h4>
-              <p class="mb-4">Please log-in to your account and start the adventure</p>
+              <h4 class="mb-2">Login to <b>Prodly!</b> 👋</h4>
+              <p class="mb-4">Please log in to your account and start your Prodly adventure</p>
 
               @if(session('class'))
                 <div class="alert alert-{{ session('class') }}" role="alert">{!! session('message') !!}</div>

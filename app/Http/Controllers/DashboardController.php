@@ -16,8 +16,7 @@ class DashboardController extends Controller
 
     public function view(Request $request)
     {
-        $user = $request->user();
-        return view('dashboard.dashboard', ['username' => $user->username]);
+        return view('dashboard.index');
     }
 
     public function logout(Request $request): RedirectResponse

@@ -10,8 +10,8 @@
           <div class="card">
             <div class="card-body">
               
-              <h4 class="mb-2">Adventure starts here 🚀</h4>
-              <p class="mb-4">Make your app management easy and fun!</p>
+              <h4 class="mb-2">Welcome to <b>Prodly</b> 🎉</h4>
+              <p class="mb-4">Manage your products effortlessly and have fun doing it!</p>
 
               <form id="formAuthentication" class="mb-3" method="POST" autocomplete="off">
                 @csrf

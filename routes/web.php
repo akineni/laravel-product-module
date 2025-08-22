@@ -7,7 +7,8 @@ use App\Http\Controllers\{
     EmailVerificationController,
     ForgotPasswordController,
     ResetPasswordController,
-    DashboardController
+    DashboardController,
+    ProductController
 };
 
 /*
@@ -50,9 +51,19 @@ Route::middleware(
         'auth',
         config('custom.email_verification') ? 'verified' : null
     ]))
-->controller(DashboardController::class)->group(function () {
-    Route::get('/dashboard', 'view')->name('dashboard');
-    Route::get('/logout', 'logout')->name('logout');
+->prefix('dashboard')->name('dashboard.')->group(function () {
+    Route::get('/', [DashboardController::class, 'view'])->name('view');
+    Route::get('/logout', [DashboardController::class, 'logout'])->name('logout');
+
+    Route::prefix('products')->controller(ProductController::class)->name('products.')->group(function () {
+        Route::get('/', 'index')->name('index');           // List all products
+        Route::get('/create', 'create')->name('create');   // Show create form
+        Route::post('/', 'store')->name('store');          // Store new product
+        Route::get('/{product}', 'show')->name('show');     // View single product
+        Route::get('/{product}/edit', 'edit')->name('edit'); // Edit form
+        Route::put('/{product}', 'update')->name('update'); // Update product
+        Route::delete('/{product}', 'destroy')->name('destroy'); // Delete product
+    });
 });
 
 Route::middleware('auth')->prefix('email')->name('verification.')->group(function () {

@@ -1,31 +1,59 @@
-# Laravel Authentication
+# Prodly - Laravel Authentication & Product Module
 
-A Laravel 10+ project focused on authentication with email verification, password reset, and queued notifications. This serves as a foundation for future modules like product management.
+A clean, beginner-friendly Laravel 10 project demonstrating **authentication**, **email verification**, and a **CRUD product module** with multiple images.
 
 ---
 
 ## Features
 
-* Auth (email/password)
-* Signup & Login
-* Password reset & email verification (queued)
-* CSRF protection & validation
+### Authentication
+
+* Sign up / Login / Logout
+* Password reset
+* Email verification (optional, toggle with `.env`)
+* Queued email notifications for better performance
+* Clean separation of concerns using **services** for business logic
+* Form Requests for validation
+
+### Product Module
+
+* Create, view, edit, delete products
+* Upload multiple images per product
+* Display products in table with image count
+* View product details with Bootstrap carousel
+* Fully responsive interface
+* Blade layouts & partials for reusable UI components
 
 ---
 
-## Setup
+## Layouts & Blade
 
-1. **Clone repo & install dependencies**
+* Uses **Blade templating engine** for clean separation of UI and logic
+* **Layouts** allow consistent headers, footers, and sidebar navigation
+* **Partials** used for reusable components like navigation menus, alerts, and modals
+* Flash messages displayed using Blade conditionals
+* Bootstrap 5 for responsive design
+
+---
+
+## Setup Instructions
+
+1. **Clone the repo**
 
 ```bash
-git clone <repo-url>
-cd <repo-folder>
+git clone https://github.com/your-username/laravel-authentication.git
+cd laravel-authentication
+```
+
+2. **Install dependencies**
+
+```bash
 composer install
 npm install
 npm run dev
 ```
 
-2. **Environment**
+3. **Configure environment**
 
 ```bash
 cp .env.example .env
@@ -33,30 +61,25 @@ php artisan key:generate
 ```
 
 * Set your DB credentials in `.env`
-* Set `APP_URL=http://127.0.0.1:8000` for local dev
-* Optional: toggle email verification
+* Toggle email verification if desired:
 
 ```env
 EMAIL_VERIFICATION=true
 ```
 
-3. **Migrate & Seed**
+4. **Run migrations & seeders**
 
 ```bash
 php artisan migrate --seed
 ```
 
-4. **Queue setup** (for email verification & password reset)
+5. **Create storage symlink (for product images)**
 
 ```bash
-php artisan queue:table
-php artisan migrate
-php artisan queue:work
+php artisan storage:link
 ```
 
-> Local dev: you can use `QUEUE_CONNECTION=sync` in `.env` to skip queue.
-
-5. **Serve app**
+6. **Serve the application**
 
 ```bash
 php artisan serve
@@ -66,18 +89,40 @@ php artisan serve
 
 ## Notes
 
-* Authentication system with email/password, signup, login, and password reset.
-* Email sending uses queued notifications for performance.
-* Verification emails are optional (toggle `EMAIL_VERIFICATION` in `.env`).
-* CSRF protection and input validation included.
-* Modular design for future extension (e.g., product module).
-* Follows SOLID principles and separates concerns with services and FormRequests.
-* Easy to extend and maintain; ready for production-level improvements.
+* Flash messages use Blade conditionals and session keys for alerts.
+* Queued email notifications ensure signup verification does not block UI.
+* Products can have multiple images; displayed using a **Bootstrap carousel**.
+* Clean, structured **services** handle authentication and product logic separately from controllers.
 
 ---
 
-## Next Steps / Improvements
+## Folder Structure Highlights
 
-* Add lazy loading and caching where needed.
-* Add unit & feature tests.
-* Add logging & error monitoring tools.
+* `app/Http/Controllers` → Controller logic
+* `app/Services` → Business logic services
+* `app/Models` → Eloquent models
+* `app/Http/Requests` → Form requests for validation
+* `resources/views` → Blade templates (layouts, partials, pages)
+* `database/migrations` → Migrations for users & products
+* `database/seeders` → Seeders for demo data
+
+---
+
+## Tech Stack
+
+* Laravel 10
+* PHP 8+
+* Blade Templates
+* Bootstrap 5
+* Queued notifications for emails
+* SQLite / MySQL (configurable)
+
+---
+
+## Future Improvements
+
+* Pagination for products listing
+* Search & filter products
+* Role-based access control
+* API endpoints for product module
+* Frontend React/Angular integration for dynamic UI
