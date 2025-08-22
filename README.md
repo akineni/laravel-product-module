@@ -87,6 +87,30 @@ php artisan serve
 
 ---
 
+## Demo Accounts
+
+You create your own account by signing up or can log in with any of the following demo usernames or emails.  
+The password for all accounts is:
+
+```
+12345678
+```
+
+| Username           | Email                          |
+|--------------------|--------------------------------|
+| daisha.steuber     | jan92@example.com              |
+| sporer.sheldon     | mosciski.mabelle@example.org   |
+| derick21           | lowe.dina@example.net          |
+| zoie01             | tod36@example.net              |
+| upton.alden        | tamara46@example.net           |
+| dickinson.harmon   | kamille13@example.net          |
+| acorkery           | maurice54@example.net          |
+| lucio.schiller     | eric.vonrueden@example.com     |
+| morissette.jayda   | giovanny95@example.net         |
+| eino28             | jaycee.crist@example.net       |
+
+---
+
 ## Notes
 
 * Flash messages use Blade conditionals and session keys for alerts.
