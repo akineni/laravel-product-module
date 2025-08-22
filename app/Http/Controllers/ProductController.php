@@ -49,12 +49,18 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $this->service->update($product, $request->all());
-        return redirect()->route('dashboard.products.index')->with('success', 'Product updated!');
+        return redirect()->route('dashboard.products.index')->with([
+            'class' => 'success',
+            'message' => 'Product updated!'
+        ]);;
     }
 
     public function destroy(Product $product)
     {
         $this->service->delete($product);
-        return redirect()->route('dashboard.products.index')->with('success', 'Product deleted!');
+        return redirect()->route('dashboard.products.index')->with([
+            'class' => 'success',
+            'message' => 'Product deleted!'
+        ]);
     }
 }
