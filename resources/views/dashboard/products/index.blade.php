@@ -5,7 +5,7 @@
   <div class="card">
     <h5 class="card-header">Products</h5>
     <div class="card-body">
-      <div class="table-responsive text-nowrap">
+      <div class="table-responsive">
         @if($products->isEmpty())
           <p>No products found.</p>
         @else
