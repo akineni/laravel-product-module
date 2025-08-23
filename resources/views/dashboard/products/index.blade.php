@@ -44,9 +44,9 @@
                                 <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <!-- <a class="dropdown-item" href="{{ route('dashboard.products.edit', $product->id) }}">
+                                <a class="dropdown-item" href="{{ route('dashboard.products.edit', $product->id) }}">
                                     <i class="bx bx-edit-alt me-1"></i> Edit
-                                </a> -->
+                                </a>
 
                                 <a class="dropdown-item" href="{{ route('dashboard.products.show', $product->id) }}" target="_blank">
                                     <i class="bx bx-show me-1"></i> View

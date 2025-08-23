@@ -2,7 +2,14 @@
 
 @section('content')
 <div class="card">
-  <h5 class="card-header">Product #{{$product->id}}</h5>
+  <div class="card-header d-flex align-items-center justify-content-between">
+    <h5 class="mb-0">Product #{{$product->id}}</h5>
+      <small class="text-muted float-end">
+      <a href="{{ route('dashboard.products.edit', $product->id) }}" class="btn btn-sm btn-outline-primary">
+        Edit
+      </a>
+    </small>
+  </div>
   <div class="card-body">
     <div class="row">
       <div class="col-md-12">
